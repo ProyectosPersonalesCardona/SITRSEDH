@@ -599,6 +599,36 @@ section {
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
+/* Placeholder cuando no hay foto */
+.card-photo .photo-placeholder {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gray-light) 0%, #e0e0e0 100%);
+    border: 4px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: all 0.4s;
+}
+
+.card-photo .photo-placeholder i {
+    font-size: 4rem;
+    color: var(--primary-color);
+    opacity: 0.6;
+}
+
+.card:hover .card-photo .photo-placeholder {
+    transform: scale(1.05);
+    border-color: var(--black);
+    box-shadow: 0 10px 30px rgba(140,2,17,0.4);
+}
+
+.card:hover .card-photo .photo-placeholder i {
+    opacity: 0.8;
+}
+
 .card:hover .card-photo img {
     transform: scale(1.05);
     border-color: var(--black);
@@ -668,7 +698,7 @@ section {
 
 .card h3 {
     color: var(--black);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0rem;
     font-size: 1.3rem;
 }
 
@@ -1195,8 +1225,8 @@ section {
     padding: 0.9rem 1.5rem;
     border-radius: 25px;
     text-decoration: none;
-    font-weight: 400;
-    font-size: 1rem;
+    font-weight: 200;
+    font-size: .7rem;
     margin-top: .5rem;
     margin-right: 0rem;
     border: 2px solid rgba(255,255,255,0.3);

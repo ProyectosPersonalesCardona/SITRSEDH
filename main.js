@@ -6,6 +6,29 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // ==========================================
+    // Manejar imágenes que no cargan (placeholder)
+    // ==========================================
+    document.querySelectorAll('.card-photo img').forEach(img => {
+        img.addEventListener('error', function() {
+            // Ocultar la imagen rota
+            this.style.display = 'none';
+            
+            // Crear el placeholder si no existe
+            if (!this.parentElement.querySelector('.photo-placeholder')) {
+                const placeholder = document.createElement('div');
+                placeholder.className = 'photo-placeholder';
+                placeholder.innerHTML = '<i class="fas fa-user"></i>';
+                this.parentElement.insertBefore(placeholder, this);
+            }
+        });
+        
+        // Verificar si la imagen ya falló (para imágenes cacheadas)
+        if (img.complete && img.naturalHeight === 0) {
+            img.dispatchEvent(new Event('error'));
+        }
+    });
+    
+    // ==========================================
     // Menú Hamburguesa
     // ==========================================
     const hamburger = document.querySelector('.hamburger');

@@ -3,384 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SITRASEDH - Sindicato de Trabajadores</title>
+    <title>Cargando... | SITRASEDH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #8c0211 0%, #5a010b 50%, #000000 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .splash-container {
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .splash-logo {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            animation: pulse 2s ease-in-out infinite, float 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
+        }
+
+        .splash-text {
+            margin-top: 2rem;
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .splash-text span:first-child {
+            color: #000000;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        .loading-bar {
+            margin-top: 3rem;
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #ffffff, #cccccc);
+            border-radius: 10px;
+            animation: loading 2.5s ease-in-out forwards;
+        }
+
+        .splash-subtitle {
+            margin-top: 1.5rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes loading {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .fade-out {
+            animation: fadeOut 0.5s ease-out forwards;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <img src="public/sitrasedh.png" alt="Logo SITRASEDH">
-                <span>SITRASEDH</span>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#junta">Junta Directiva</a></li>
-                <li><a href="#miembros">Miembros</a></li>
-                <li><a href="#estatutos">Estatutos</a></li>
-                <li><a href="#eventos">Eventos</a></li>
-                <li><a href="#contacto">Contáctanos</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    <div class="splash-container" id="splashContainer">
+        <img src="public/sitrasedh.png" alt="Logo SITRASEDH" class="splash-logo">
+        <div class="splash-text">
+            <span>SITRA</span><span>SEDH</span>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="hero-decoration"></div>
-        <div class="hero-decoration"></div>
-        <div class="hero-content">
-            <img src="public/sitrasedh.png" alt="Logo SITRASEDH" class="hero-logo">
-            <h1>SITRASEDH</h1>
-            <p>Sindicato de Trabajadores comprometidos con la defensa de los derechos laborales, la justicia social y el bienestar de todos nuestros afiliados.</p>
-            <a href="#junta" class="hero-btn">Conoce más</a>
-            
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="hero-stat-number">49+</div>
-                    <div class="hero-stat-label">Miembros Afiliados</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number">2025</div>
-                    <div class="hero-stat-label">Año de Fundación</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number">100%</div>
-                    <div class="hero-stat-label">Defensores de Derechos Laborales</div>
-                </div>
-            </div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
         </div>
-    </section>
+        <p class="splash-subtitle">Sindicato de Trabajadores</p>
+    </div>
 
-    <!-- Junta Directiva -->
-    <section class="junta-directiva" id="junta">
-        <div class="container">
-            <div class="section-title">
-                <h2>Junta Directiva Provisional</h2>
-                <p>Conoce a los líderes que trabajan por tus derechos</p>
-            </div>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-photo">
-                        <img src="public/presidente.jpg" alt="Presidente">
-                        <div class="card-icon">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                    </div>
-                    <h3>Marvin Josué Fúnez Vásquez</h3>
-                    <p class="cargo">Presidente</p>
-                    <p>Nuestro líder en la defensa de los derechos laborales.</p>
-                </div>
-                <div class="card">
-                    <div class="card-photo">
-                        <img src="public/vicepresidente.jpg" alt="Vicepresidente">
-                        <div class="card-icon">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                    </div>
-                    <h3>Luis Enrique Cardona Castro</h3>
-                    <p class="cargo">Vicepresidente</p>
-                    <p>Comprometido con el desarrollo profesional y bienestar de los trabajadores.</p>
-                </div>
-                <div class="card">
-                    <div class="card-photo">
-                        <img src="public/secretario-actas.jpg" alt="Secretario de Actas">
-                        <div class="card-icon">
-                            <i class="fas fa-file-signature"></i>
-                        </div>
-                    </div>
-                    <h3>Marlon Antonio Escobar Diaz</h3>
-                    <p class="cargo">Secretario de Actas</p>
-                    <p>Responsable de documentar cada logro y decisión del sindicato.</p>
-                </div>
-                <div class="card">
-                    <div class="card-photo">
-                        <img src="public/secretaria-general.jpg" alt="Secretaria General">
-                        <div class="card-icon">
-                            <i class="fas fa-user-edit"></i>
-                        </div>
-                    </div>
-                    <h3>Nancy Paola Suarez Reyes</h3>
-                    <p class="cargo">Secretaria General</p>
-                    <p>Coordina todas las actividades administrativas del sindicato.</p>
-                </div>
-                <div class="card">
-                    <div class="card-photo">
-                        <img src="public/tesorero.png" alt="Tesorero">
-                        <div class="card-icon">
-                            <i class="fas fa-coins"></i>
-                        </div>
-                    </div>
-                    <h3>Sigifredo Barahona Lagos</h3>
-                    <p class="cargo">Tesorero</p>
-                    <p>Administra con transparencia los recursos del sindicato.</p>
-                </div>
-                <div class="card">
-                    <div class="card-photo">
-                        <img src="public/fiscal.jpg" alt="Fiscal">
-                        <div class="card-icon">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                    </div>
-                    <h3>José Zacarias Baquis</h3>
-                    <p class="cargo">Fiscal</p>
-                    <p>Vigila el cumplimiento de los estatutos y normas sindicales.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Miembros Afiliados -->
-    <section class="miembros" id="miembros">
-        <div class="container">
-            <div class="section-title">
-                <h2>Miembros Afiliados</h2>
-                <p>Nuestra fuerza radica en la unión de nuestros 48 miembros</p>
-            </div>
-            <div class="tables-wrapper">
-                <div class="table-container">
-                    <table class="miembros-table">
-                        <thead>
-                            <tr>
-                                <th>N°</th>
-                                <th>Nombre</th>
-                                <th>DNI</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>1</td><td>MARVIN JOSUE FUNEZ VASQUEZ</td><td>0801-1987-15949</td></tr>
-                            <tr><td>2</td><td>LUIS ENRIQUE CARDONA CASTRO</td><td>0801-1997-10100</td></tr>
-                            <tr><td>3</td><td>CARLOS JOSUE OSORTO RAMIREZ</td><td>1703-1994-00319</td></tr>
-                            <tr><td>4</td><td>NANCY PAOLA SUAREZ REYES</td><td>0801-1986-03395</td></tr>
-                            <tr><td>5</td><td>SIGIFREDO BARAHONA LAGOS</td><td>0818-1962-00060</td></tr>
-                            <tr><td>6</td><td>JOSE ZACARIAS BAQUIS</td><td>0813-1980-00212</td></tr>
-                            <tr><td>7</td><td>JOSE MIGUEL MEJIA CALIX</td><td>0801-1987-08673</td></tr>
-                            <tr><td>8</td><td>AVENER BUESO ULLOA</td><td>0801-1984-03831</td></tr>
-                            <tr><td>9</td><td>NANCY PATRICIA RODIGUEZ LINARES</td><td>0615-1981-00581</td></tr>
-                            <tr><td>10</td><td>JULIO CESAR JUANEZ BUSTILLO</td><td>0801-1965-01767</td></tr>
-                            <tr><td>11</td><td>ROY ANTONIO SANTOS ANDINO</td><td>0801-1965-10202</td></tr>
-                            <tr><td>12</td><td>MARCO ORTIZ GODOY</td><td>0801-1977-03417</td></tr>
-                            <tr><td>13</td><td>WENDY MARITZA NUÑEZ PALMA</td><td>0801-1994-05054</td></tr>
-                            <tr><td>14</td><td>SHEDAD ANDREA MELGHEM FLORES</td><td>0801-1997-16738</td></tr>
-                            <tr><td>15</td><td>MARLON JAVIER FLORES BONILLA</td><td>0801-1990-16780</td></tr>
-                            <tr><td>16</td><td>NELY MARLEN VILLANUEVA CANTARERO</td><td>1010-1989-00127</td></tr>
-                            <tr><td>17</td><td>GINA JULISSA LAGOS MARTINEZ</td><td>0801-1991-06880</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-container">
-                    <table class="miembros-table">
-                        <thead>
-                            <tr>
-                                <th>N°</th>
-                                <th>Nombre</th>
-                                <th>DNI</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>18</td><td>FELIPA NERY GARCIA SANCHEZ</td><td>0716-1982-00191</td></tr>
-                            <tr><td>19</td><td>SUYAPA ESPINOZA CANALES</td><td>0801-1974-01640</td></tr>
-                            <tr><td>20</td><td>SANDRA LETICIA GUERRERO PAZ</td><td>0801-1999-00923</td></tr>
-                            <tr><td>21</td><td>TATIANA WALESKA BARRIENTOS ARGUIJO</td><td>0801-1989-21749</td></tr>
-                            <tr><td>22</td><td>JAVIER ARMANDO OSORTO RODRIGUEZ</td><td>0801-1997-08583</td></tr>
-                            <tr><td>23</td><td>SALVADOR APLICANO CANTARERO</td><td>0801-1955-01200</td></tr>
-                            <tr><td>24</td><td>DAVID RICARDO CARCAMO GOMEZ</td><td>0801-1983-04752</td></tr>
-                            <tr><td>25</td><td>MANFRED SAUL RIVERA MUNGUIA</td><td>1501-1984-04807</td></tr>
-                            <tr><td>26</td><td>SANTOS JUSTINIANO REYES ORTIZ</td><td>0611-1970-00616</td></tr>
-                            <tr><td>27</td><td>SARA MELISSA ROMERO ESCOBAR</td><td>0801-1985-18730</td></tr>
-                            <tr><td>28</td><td>CINDY JOSSELYN BAQUEDANO HERNANDEZ</td><td>0501-1993-12544</td></tr>
-                            <tr><td>29</td><td>MIRIAN SADORIC LOPEZ RODRIGUEZ</td><td>0822-1994-00102</td></tr>
-                            <tr><td>30</td><td>JERRY FERNANDO RIVERA GARCIA</td><td>0801-1997-16157</td></tr>
-                            <tr><td>31</td><td>SANDRA IVETTE HENRIQUEZ NUÑEZ</td><td>0801-1983-14964</td></tr>
-                            <tr><td>32</td><td>RITA GUADALUPE CALDERON MADRID</td><td>1808-1968-00449</td></tr>
-                            <tr><td>33</td><td>YUVINI ALEXANDER RODAS PEÑA</td><td>0801-1979-04218</td></tr>
-                            <tr><td>34</td><td>ALISSON MELISSA SABILLON ANDINO</td><td>0801-1997-16935</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-container">
-                    <table class="miembros-table">
-                        <thead>
-                            <tr>
-                                <th>N°</th>
-                                <th>Nombre</th>
-                                <th>DNI</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>35</td><td>ANGELA FRANCELIA ALVARADO MARTINEZ</td><td>0825-1993-00174</td></tr>
-                            <tr><td>36</td><td>ALDO MIGUEL BERRIOS ALONZO</td><td>0801-2000-13457</td></tr>
-                            <tr><td>37</td><td>CARLOS ROBERTO DIAZ ANDINO</td><td>0801-1977-11129</td></tr>
-                            <tr><td>38</td><td>CESARIO A. PADILLA FIGUEROA</td><td>0801-1992-22431</td></tr>
-                            <tr><td>39</td><td>JORGE ALBERTO LOPEZ APLICANO</td><td>0801-1989-15830</td></tr>
-                            <tr><td>40</td><td>SENIA EBEN RODRIGUEZ TERCERO</td><td>0801-1973-10660</td></tr>
-                            <tr><td>41</td><td>KATHERIN GISSEL FLORES ALVARADO</td><td>0815-1997-00201</td></tr>
-                            <tr><td>42</td><td>LUIS FERNANDO LOZANO BRICEÑO</td><td>0304-1991-00144</td></tr>
-                            <tr><td>43</td><td>DAVID YOSIMAR MONTALVAN ANDINO</td><td>0801-1992-12382</td></tr>
-                            <tr><td>44</td><td>ERIK AMADO CARRANZA COSULA</td><td>0801-1977-05482</td></tr>
-                            <tr><td>45</td><td>CARLOS HUMBERTO VALLE CORRALES</td><td>0801-1961-01427</td></tr>
-                            <tr><td>46</td><td>MARLON ANTONIO ESCOBAR DIAZ</td><td>0801-1992-24136</td></tr>
-                            <tr><td>47</td><td>ANIBAL EDGARDO ALVARES ORDOÑES</td><td>0610-1985-01022</td></tr>
-                            <tr><td>48</td><td>CARLA JISSELA GIRON CRUZ</td><td>1504-1983-00087</td></tr>
-                            <tr><td>49</td><td>YESICA CAROLINA 	DUARTE BUSTILLO	</td><td>08011981-04194</td></tr>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Estatutos -->
-    <section class="estatutos" id="estatutos">
-        <div class="container">
-            <div class="section-title">
-                <h2>Estatutos del Sindicato</h2>
-                <p>Principios y normas que nos rigen</p>
-            </div>
-            <div class="estatutos-content">
-                <div class="estatuto-item">
-                    <h3><i class="fas fa-bullseye"></i> Misión</h3>
-                    <p>Defender y promover los derechos laborales de todos los trabajadores afiliados, garantizando condiciones dignas de trabajo y bienestar social.</p>
-                </div>
-                <div class="estatuto-item">
-                    <h3><i class="fas fa-eye"></i> Visión</h3>
-                    <p>Ser el sindicato más fuerte y respetado del país, reconocido por su compromiso con la justicia laboral y el desarrollo integral de sus miembros.</p>
-                </div>
-                <div class="estatuto-item">
-                    <h3><i class="fas fa-heart"></i> Valores</h3>
-                    <p>Solidaridad, transparencia, justicia, democracia participativa, respeto mutuo y compromiso con el bienestar colectivo.</p>
-                </div>
-                <div class="estatuto-item">
-                    <h3><i class="fas fa-users"></i> Membresía</h3>
-                    <p>Pueden afiliarse todos los trabajadores activos que compartan nuestros principios y deseen formar parte de nuestra lucha sindical.</p>
-                </div>
-                <div class="estatuto-item">
-                    <h3><i class="fas fa-gavel"></i> Derechos</h3>
-                    <p>Participación en asambleas, derecho a voto, acceso a beneficios sindicales, asesoría legal gratuita y representación ante la patronal.</p>
-                </div>
-                <div class="estatuto-item">
-                    <h3><i class="fas fa-tasks"></i> Obligaciones</h3>
-                    <p>Cumplir con las cuotas sindicales, participar activamente en las actividades del sindicato y respetar los acuerdos de la asamblea general.</p>
-                </div>
-            </div>
-            
-            <!-- Vista Previa PDF -->
-            <div class="pdf-preview-container">
-                <div class="pdf-preview-header">
-                    <h3><i class="fas fa-file-pdf"></i> Documento Oficial de Estatutos</h3>
-                    <a href="public/estatutos-sitrasedh.PDF" download>
-                        <i class="fas fa-download"></i> Descargar PDF
-                    </a>
-                </div>
-                <iframe src="public/estatutos-sitrasedh.PDF" class="pdf-embed" title="Estatutos SITRASEDH"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Eventos -->
-    <section class="eventos" id="eventos">
-        <div class="container">
-            <div class="section-title">
-                <h2>Próximos Eventos</h2>
-                <p>Actividades y reuniones programadas</p>
-            </div>
-            <div class="eventos-grid">
-                <div class="evento-card">
-                    <div class="evento-fecha">
-                        <div class="dia">29</div>
-                        <div>Diciembre 2025</div>
-                    </div>
-                    <div class="evento-info">
-                        <h3>Personaria Juridica de SITRASEDH</h3>
-                        <p>Avance, retos y logros obtenidos.</p>
-                        <p class="ubicacion"><i class="fas fa-map-marker-alt"></i> Sotano de la SEDH</p>
-                    </div>
-                </div>
-                <div class="evento-card">
-                    <div class="evento-fecha">
-                        <div class="dia">pendiente</div>
-                        <div>Enero 2026</div>
-                    </div>
-                    <div class="evento-info">
-                        <h3>Avance Personaria Juridica de SITRASEDH.</h3>
-                        <p>Avance de obtencion de personaria juridica.</p>
-                        <p class="ubicacion"><i class="fas fa-map-marker-alt"></i> pendiente</p>
-                    </div>
-                </div>
-                <div class="evento-card">
-                    <div class="evento-fecha">
-                        <div class="dia">pendiente</div>
-                        <div>2026</div>
-                    </div>
-                    <div class="evento-info">
-                        <h3>Posesión y nombramiento nueva directiva oficial</h3>
-                        <p>Celebración del sindicato con actividades recreativas para afiliados.</p>
-                        <p class="ubicacion"><i class="fas fa-map-marker-alt"></i> pendiente</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacto -->
-    <section class="contacto" id="contacto">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contáctanos</h2>
-                <p>Estamos aquí para ayudarte</p>
-            </div>
-            <div class="contacto-grid">
-                <div class="contacto-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Nuestra Ubicación</h3>
-                    <p>Colonia Florencia Norte</p>
-                    <p>Blvd Suyapa</p>
-                    <p>Tegucigalpa, Honduras</p>
-                </div>
-                <div class="contacto-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <h3>WhatsApp</h3>
-                    <p>Comunícate directamente con nosotros:</p>
-                    <a href="https://wa.me/50432672421" class="whatsapp-btn-dark" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Marvin Funez | +504 3267-2421
-                    </a>
-                    <a href="https://wa.me/50498244350" class="whatsapp-btn-dark" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Nancy Suarez | +504 9824-4350
-                    </a>
-                </div>
-                <div class="contacto-item">
-                    <i class="fas fa-clock"></i>
-                    <h3>Horario de Atención</h3>
-                    <p><strong>Lunes a Viernes:</strong></p>
-                    <p>8:00 AM - 4:00 PM</p>
-                </div>
-            </div>
-            <div class="mapa-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1934.9132893145513!2d-87.18061708423653!3d14.084818099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6fa278c95e9fcf%3A0x8f6fa278c95e9fcf!2sColonia%20Florencia%20Norte%2C%20Blvd%20Suyapa%2C%20Tegucigalpa!5e0!3m2!1ses!2shn!4v1703692800000!5m2!1ses!2shn" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p><strong>SITRASEDH</strong> - Sindicato de Trabajadores de la Secretaria de Derechos Humanos en Honduras</p>
-        <p>&copy; 2025 SITRASEDH. Todos los derechos reservados.</p>
-    </footer>
-
-    <!-- Botón Scroll to Top -->
-    <button class="scroll-top" id="scrollTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- JavaScript -->
-    <script src="main.js"></script>
+    <script>
+        // Redirigir después de 3 segundos
+        setTimeout(function() {
+            document.getElementById('splashContainer').classList.add('fade-out');
+            setTimeout(function() {
+                window.location.href = 'home.html';
+            }, 500);
+        }, 2500);
+    </script>
 </body>
 </html>

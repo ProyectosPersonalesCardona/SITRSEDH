@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargando... | SITRASEDH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #8c0211 0%, #5a010b 50%, #000000 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .splash-container {
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .splash-logo {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            animation: pulse 2s ease-in-out infinite, float 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
+        }
+
+        .splash-text {
+            margin-top: 2rem;
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .splash-text span:first-child {
+            color: #000000;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        .loading-bar {
+            margin-top: 3rem;
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #ffffff, #cccccc);
+            border-radius: 10px;
+            animation: loading 2.5s ease-in-out forwards;
+        }
+
+        .splash-subtitle {
+            margin-top: 1.5rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes loading {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .fade-out {
+            animation: fadeOut 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-container" id="splashContainer">
+        <img src="public/sitrasedh.png" alt="Logo SITRASEDH" class="splash-logo">
+        <div class="splash-text">
+            <span>SITRA</span><span>SEDH</span>
+        </div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+        <p class="splash-subtitle">Sindicato de Trabajadores</p>
+    </div>
+
+    <script>
+        // Redirigir después de 3 segundos
+        setTimeout(function() {
+            document.getElementById('splashContainer').classList.add('fade-out');
+            setTimeout(function() {
+                window.location.href = 'index.html';
+            }, 500);
+        }, 2500);
+    </script>
+</body>
+</html>

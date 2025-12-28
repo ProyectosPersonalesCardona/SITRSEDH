@@ -1,0 +1,13 @@
+/* TEAM */
+Desarrollador: Luis Cardona kikecar97@gmail.com
+Sitio: SITRASEDH - Sindicato de Trabajadores
+Ubicación: Tegucigalpa, Honduras
+
+/* TECNOLOGÍAS */
+HTML5, CSS3, JavaScript
+Font Awesome 6.4.0
+Google Fonts (Montserrat)
+
+/* GRACIAS */
+Este sitio fue creado con dedicación para los trabajadores de SITRASEDH.
+Tegucigalpa, Honduras - 2025

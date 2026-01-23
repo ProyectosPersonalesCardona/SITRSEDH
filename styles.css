@@ -864,8 +864,20 @@ section {
     background: var(--gray-light);
 }
 
-.pdf-preview-container {
+/* Grid para 2 PDFs - Ancho completo */
+.pdf-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
     margin-top: 3rem;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+.pdf-preview-container {
+    margin-top: 0;
     background: var(--white);
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -911,7 +923,7 @@ section {
 
 .pdf-embed {
     width: 100%;
-    height: 400px;
+    height: 600px;
     border: none;
     border-radius: 10px;
     background: #f0f0f0;
@@ -924,17 +936,19 @@ section {
 
 .pdf-viewer-wrapper object {
     width: 100%;
-    height: 500px;
+    height: 600px;
     border: none;
     border-radius: 10px;
     display: block;
+    background: #ffffff;
 }
 
 .pdf-viewer-wrapper object iframe {
     width: 100%;
-    height: 500px;
+    height: 600px;
     border: none;
     border-radius: 10px;
+    background: #ffffff;
 }
 
 .pdf-viewer-wrapper p {
@@ -975,6 +989,24 @@ section {
     .pdf-preview-header a {
         width: 100%;
         justify-content: center;
+    }
+
+    .pdf-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .pdf-grid {
+        gap: 1.5rem;
+        padding: 0 1.5rem;
+    }
+    
+    .pdf-viewer-wrapper object,
+    .pdf-viewer-wrapper object iframe {
+        height: 400px;
     }
 }
 

@@ -857,6 +857,29 @@ section {
 }
 
 /* ==========================================
+   Documentos - Sección Ancho Completo
+   ========================================== */
+
+.documentos {
+    background: var(--gray-light);
+    padding: 5rem 0;
+}
+
+.documentos-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+}
+
+.pdf-grid-full {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    width: 100%;
+}
+
+/* ==========================================
    Estatutos
    ========================================== */
 
@@ -864,16 +887,14 @@ section {
     background: var(--gray-light);
 }
 
-/* Grid para 2 PDFs - Ancho completo */
+/* Grid para PDFs - 3 columnas en desktop */
 .pdf-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 3rem;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    padding: 0 2rem;
-    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
 }
 
 .pdf-preview-container {
@@ -883,6 +904,9 @@ section {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     overflow: hidden;
     padding: 1.5rem;
+    min-width: 0;
+    height: fit-content;
+    align-self: start;
 }
 
 .pdf-preview-header {
@@ -996,17 +1020,82 @@ section {
         gap: 1.5rem;
         padding: 0 1rem;
     }
+    
+    .pdf-grid-full {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .documentos-container {
+        padding: 0 1rem;
+    }
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
     .pdf-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
-        padding: 0 1.5rem;
+    }
+    
+    .pdf-grid-full {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
     
     .pdf-viewer-wrapper object,
     .pdf-viewer-wrapper object iframe {
-        height: 400px;
+        height: 500px;
+    }
+}
+
+/* Desktop - 3 columnas ancho completo */
+@media (min-width: 1025px) {
+    .pdf-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+        align-items: start;
+        max-width: 1200px;
+        margin: 3rem auto 0;
+        padding: 0 1rem;
+    }
+    
+    .pdf-grid-full {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+        align-items: start;
+    }
+    
+    .documentos-container {
+        padding: 0 1.5rem;
+    }
+    
+    .pdf-preview-container {
+        width: 100%;
+    }
+    
+    .pdf-viewer-wrapper object,
+    .pdf-viewer-wrapper object iframe {
+        height: 500px;
+    }
+    
+    .pdf-preview-header h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Desktop extra grande */
+@media (min-width: 1600px) {
+    .pdf-grid-full {
+        gap: 2rem;
+    }
+    
+    .documentos-container {
+        padding: 0 2rem;
+    }
+    
+    .pdf-viewer-wrapper object,
+    .pdf-viewer-wrapper object iframe {
+        height: 550px;
     }
 }
 
